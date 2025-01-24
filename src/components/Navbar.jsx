@@ -35,11 +35,12 @@ const NavContainer = styled.nav`
 h2 {
     color: white;
     font-weight: 400;
+    margin-left: 1em;
     span{
         font-weight: bold;
    }
 }
-padding: .4em;
+padding: auto;
 background-color: black;
 border-radius: 10px;
 display: flex;
@@ -71,7 +72,7 @@ a{
     a{
         color: black;
         display: block;
-        font-size: 2em;
+        font-size: 3em;
     }
 @media(min-width: 768px){
     position: initial;
