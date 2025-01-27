@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import Burguesa from './Burguesa'
 import { FaShoppingBag } from 'react-icons/fa'
+import CartWidget from './CartWidget'
 
 
 function Navbar() {
@@ -19,7 +20,9 @@ const handleClick = () => {
                 <a href="/">Boca</a>
                 <a href="/">Real Madrid</a>
                 <a href="/">Barcelona</a>
-                <a href="/"><FaShoppingBag/></a>
+            </div>
+            <div className={`cart-widget ${clicked ? 'active' : ''}`}>
+                <CartWidget clicked={clicked} handleClick={handleClick}/>
             </div>
         <div className='burguer'>
             <Burguesa clicked={clicked} handleClick={handleClick}/>
@@ -54,6 +57,25 @@ a{
     margin-right: 1em;
 }
 
+.cart-widget{
+    color: white;
+    font-size: 1.5em; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1em;
+
+
+    &:hover{
+      color: black;
+      background-color: #f7f7f7;
+      border-radius: 20px;
+      cursor: pointer;
+      padding: 5px 10px;
+      transition: all .6s ease;
+    }
+}
+
 .burguer{
 @media(min-width: 768px){
         display: none;
@@ -73,6 +95,15 @@ a{
         color: black;
         display: block;
         font-size: 3em;
+        &:hover{
+            color: #000000;
+            background-color: #f7f7f7;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px 10px;
+            transition: all .6s ease;
+        }
     }
 @media(min-width: 768px){
     position: initial;
