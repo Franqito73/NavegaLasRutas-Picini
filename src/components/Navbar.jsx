@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Burguesa from './Burguesa'
 import { FaShoppingBag } from 'react-icons/fa'
 import CartWidget from './CartWidget'
-
+import ItemListContainer from './ItemListContainer'
 
 function Navbar() {
 const [clicked, setClicked] = useState(false)
@@ -28,6 +28,7 @@ const handleClick = () => {
             <Burguesa clicked={clicked} handleClick={handleClick}/>
         </div>
         <BgDiv className= {`initial ${clicked ? 'active' : ''}`}></BgDiv>
+        <ItemListContainer/>
       </NavContainer>
   )
 }
