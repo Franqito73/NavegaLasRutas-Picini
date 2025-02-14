@@ -1,10 +1,18 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from 'react'
+import { useState, useEffect } from 'react'
+import ItemList from './ItemList'
 
-function ItemListContainer({text}) {
+function ItemListContainer() {
+
+const [items, setItems] = useState ([])
+
+useEffect (() => {
+  fetch('https://dummyjson.com/products')
+  .then(res => res.json())
+  .then(res => setItems(res.products))
+}, [])
   return (
-    <h1>{text}</h1>
+    <ItemList items={items}/>
   )
 }
 
