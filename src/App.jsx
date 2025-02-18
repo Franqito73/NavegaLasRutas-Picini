@@ -1,13 +1,18 @@
 import './App.css'
-import Navbar from './components/Navbar'
+import CustomNavBar from './components/CustomNavbar'
 import ItemListContainer from './components/ItemListContainer'
+import { BrowserRouter, Routes, Route } from "react-router"
+
 
 function App() {
   return (
-    <>
-    <Navbar/>
-    <ItemListContainer text= 'Holita'/>
-    </>
+    <BrowserRouter>
+    <CustomNavBar />
+    <Routes>
+      <Route path="/" element={<ItemListContainer />} />
+      <Route path="/category/:id" element={<ItemListContainer />}></Route>
+    </Routes>
+  </BrowserRouter>
   )
 }
 

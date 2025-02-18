@@ -1,17 +1,15 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
-import styled from 'styled-components'
+import React from 'react'
+import { FaShoppingCart } from 'react-icons/fa'
+import Badge from 'react-bootstrap/Badge'
+import Button from 'react-bootstrap/Button'
 
-const CartWidget = () => {
-  const cartItems = 5;
-
+function CartWidget() {
   return (
-    <div>
-      <FaShoppingCart/> {}
-      <span>{cartItems}</span> {}
-    </div>
+    <Button variant="primary">
+      <FaShoppingCart/> <Badge bg="secondary">9</Badge>
+      <span className="visually-hidden">unread messages</span>
+    </Button>
   );
-};
+}
 
-export default CartWidget;
+export default CartWidget
