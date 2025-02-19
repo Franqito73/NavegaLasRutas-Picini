@@ -2,7 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
-
+import { Link } from 'react-router'
 function Item({ producto }) {
   return (
     <Col md={6} lg={4} className="mb-4 d-flex justify-content-center">
@@ -12,7 +12,7 @@ function Item({ producto }) {
           <Card.Title>{producto.title}</Card.Title>
           <Card.Text>{producto.category}</Card.Text>
           <Card.Text>{producto.description}</Card.Text>
-          <Button variant="primary">Ver Más</Button>
+          <Button as={Link} to={`/item/${producto.id}`} variant="primary">Ver Más</Button>
         </Card.Body>
       </Card>
     </Col>
