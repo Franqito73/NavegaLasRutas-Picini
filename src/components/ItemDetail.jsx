@@ -16,7 +16,7 @@ function ItemDetail({ detail }) {
           <Card.Text>{detail?.category}</Card.Text>
           <Card.Text>${detail?.price}</Card.Text>
           <Card.Text>Stock: {detail?.stock}</Card.Text>
-          <ItemCount/>
+          <ItemCount product={ detail }/>
         </Card.Body>
       </Card>
     </Row>

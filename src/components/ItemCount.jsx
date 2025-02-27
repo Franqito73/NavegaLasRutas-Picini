@@ -1,13 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useContext } from "react"
 import React from 'react'
+import { CartContext } from "../context/CartContex"
 
-function ItemCount() {
+function ItemCount({product}) {
 const [count, setCount] = useState (0)
-
-    useEffect(() => {
-
-    return 
-    }, [count])
+const {addToCart} = useContext(CartContext)
 
 const handleAdd = () => {
     setCount(count + 1) 
@@ -16,11 +13,16 @@ const handleAdd = () => {
 const handleRest = () => {
     setCount(count - 1)
 }
+
+const handleAddToCart = () => {
+  addToCart({...product, quantity: count})
+}
   return (
     <div>
       <p>{count}</p>
       <button onClick={handleAdd}>+</button>
       <button onClick={handleRest}>-</button>
+      <button onClick={handleAddToCart}>Agregar al carrito</button>
     </div>
   )
 }
