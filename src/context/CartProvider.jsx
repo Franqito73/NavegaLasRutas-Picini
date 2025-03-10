@@ -16,8 +16,14 @@ function CartProvider ({children}) {
             }
         } 
 
+        const getQuantity = () => {
+            const quantities = cart.map(product => product.quantity)
+            const result = quantities.reduce((acc, current) => acc + current, 0)
+            
+            return result
+        }
     return(
-        <CartContex.Provider value={{addToCart, cart}}>
+        <CartContex.Provider value={{addToCart, cart, getQuantity}}>
             {children}
         </CartContex.Provider>
     )
