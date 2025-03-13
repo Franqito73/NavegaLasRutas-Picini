@@ -1,6 +1,6 @@
 import { useState, useContext } from "react"
-import React from 'react'
 import { CartContex } from "../context/CartContex"
+import { Button } from "react-bootstrap"
 
 function ItemCount({product}) {
 
@@ -23,12 +23,15 @@ function ItemCount({product}) {
   }
 
   return (
-    <div>
+    <>
       <p>{count}</p>
-      <button onClick={handleAdd}>+</button>
-      <button onClick={handleRest}>-</button>
-      <button onClick={handleAddToCart}>Agregar al Carrito</button>
-    </div>
+
+      <div className="d-flex gap-2 mb-2">  
+        <Button variant="primary" onClick={handleAdd}>+</Button>
+        <Button variant="danger" onClick={handleRest}>-</Button>
+        <Button variant="dark" onClick={handleAddToCart}>Agregar al Carrito</Button>
+      </div>
+    </>
   )
   
 }

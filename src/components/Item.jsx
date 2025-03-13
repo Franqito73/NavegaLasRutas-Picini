@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router'
+
 function Item({ producto }) {
   return (
     <Col md={6} lg={4} className="mb-4 d-flex justify-content-center">

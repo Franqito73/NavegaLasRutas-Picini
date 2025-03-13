@@ -1,7 +1,13 @@
 import React from 'react'
-import { Container, Row, Col, Table, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Table, Button, Card } from 'react-bootstrap'
+import { useNavigate } from 'react-router'
 
 const CartList = ({ cart }) => {
+  const navigate = useNavigate ()
+    
+    const handleClick = () => {
+        navigate('/checkout')
+    }
   return (
     <Container>
           <Row className="my-4">
@@ -41,7 +47,7 @@ const CartList = ({ cart }) => {
                     Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
                   </h4>
                   <div className="text-center">
-                    <Button variant="primary">Pagar</Button>
+                    <Button  variant="primary" onClick={handleClick}>Ir al checkout</Button>
                   </div>
                 </Card.Body>
               </Card>
