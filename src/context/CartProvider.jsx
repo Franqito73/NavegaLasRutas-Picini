@@ -22,6 +22,7 @@ function CartProvider ({children}) {
             
             return result
         }
+        
     return(
         <CartContex.Provider value={{addToCart, cart, getQuantity}}>
             {children}
