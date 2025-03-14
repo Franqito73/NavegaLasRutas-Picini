@@ -9,7 +9,7 @@ function ItemDetail({ detail }) {
     <Container className="d-flex justify-content-center align-items-center mt-5 mb-5" style={{ minHeight: '100vh' }}>
     <Row className="w-100 justify-content-center">
       <Card style={{ width: '25rem' }} className="shadow-lg">
-        <Card.Img variant="top" src={detail?.thumbnail} />
+        <Card.Img variant="top" src={detail?.image} />
         <Card.Body>
           <Card.Title>{detail?.title}</Card.Title>
           <Card.Text>{detail?.description}</Card.Text>

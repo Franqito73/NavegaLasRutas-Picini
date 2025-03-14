@@ -34,7 +34,7 @@ const CartList = ({ cart }) => {
                           <td>${item.price * item.quantity}</td>
                           <td>
                             <img
-                              src={item.thumbnail}
+                              src={item.image}
                               style={{ width: '50px', height: '50px', objectFit: 'cover' }}
                               alt={item.title}
                             />
