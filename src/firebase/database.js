@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, query, where, doc, getDoc  } from "firebase/firestore"
+import { getFirestore, collection, getDocs, query, where, doc, getDoc, addDoc } from "firebase/firestore"
 import { app } from "./config"
 
 const db = getFirestore(app)
@@ -35,4 +35,13 @@ export const getProduct = async (id) => {
   if (docSnap.exists()) {
    return {...docSnap.data(), id : docSnap.id}
   } 
+}
+
+export const createOrder = async (order) =>{
+  try {
+    const docRef = await addDoc(collection(db, "orders"), order);
+    return  docRef.id
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
 }

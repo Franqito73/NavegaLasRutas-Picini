@@ -1,29 +1,43 @@
-import React, { useState } from 'react'
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap'
-import ModalForm from './ModalForm'
+import Swal from 'sweetalert2'
+import { useContext } from 'react'
+import { CartContex } from '../context/CartContex'
+import { serverTimestamp } from 'firebase/firestore'
+import { createOrder } from '../firebase/database'
+import { useNavigate } from 'react-router'
 
-const Checkout = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    address: '',
-    city: '',
-    postalCode: '',
-  })
+const CheckoutForm = () => {
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
-  }
+  const { cart, getTotal, clearCart } = useContext(CartContex)
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Aquí puedes agregar la lógica para procesar el formulario, como enviarlo a un backend
-    alert('Compra realizada exitosamente!')
-  };
+    const form = e.target
+    const email = form.email.value
+    const name = form.name.value
+    const phone = form.phone.value
+
+    const order ={
+      items: cart,
+      user: {name, email, phone},
+      time: serverTimestamp(),
+      total: getTotal(),
+    }
+    
+    const id = await createOrder(order)
+
+    Swal.fire({
+      title: '¡Gracias por tu compra!',
+      html: `Tu compra ha sido completada exitosamente.<br/>
+      El ID de tu compra es: <strong>${id}</strong>.<br/>
+      El total es: <strong>$${order.total}</strong>`,
+      icon: 'success',
+      confirmButtonText: 'Cerrar',
+    }).then(() => {clearCart(); navigate('/')})
+
+}
 
   return (
     <Container>
@@ -35,40 +49,21 @@ const Checkout = () => {
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="name">
                   <Form.Label>Nombre Completo</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Introduce tu nombre y apellido"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Control type="text" placeholder="Introduce tu nombre y apellido"
+                    name="name" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="email">
                   <Form.Label>E-mail</Form.Label>
                   <Form.Control
-                    type="email"
-                    placeholder="Introduce tu correo electrónico"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
+                    type="email" placeholder="Introduce tu correo electrónico"
+                    name="email" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="cellphone">
+                <Form.Group className="mb-3" controlId="phone">
                   <Form.Label>Teléfono</Form.Label>
-                  <Form.Control
-                    type="tel"
-                    placeholder="Introduce tu número telefónico"
-                    name="cellphone"
-                    value={formData.cellphone}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Control type="tel" placeholder="Introduce tu número telefónico"
+                    name="phone" required />
                 </Form.Group>
-                <Button variant="primary" type="submit" block>
-                  Finalizar Compra
-                </Button>
+                <Button variant="primary" type="submit" block>Finalizar Compra</Button>
               </Form>
             </Card.Body>
           </Card>
@@ -78,4 +73,4 @@ const Checkout = () => {
   )
 }
 
-export default Checkout;
+export default CheckoutForm;

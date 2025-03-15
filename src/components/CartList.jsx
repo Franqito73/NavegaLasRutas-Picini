@@ -30,7 +30,7 @@ const CartList = ({ cart }) => {
                           <td>{item.name}</td>
                           <td>{item.quantity}</td>
                           <td>${item.price}</td>
-                          <td>${item.price * item.quantity}</td>
+                          <td>${(item.price * item.quantity).toFixed(2)}</td>
                           <td>
                             <img
                               src={item.image}
