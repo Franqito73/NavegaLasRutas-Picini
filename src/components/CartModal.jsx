@@ -16,7 +16,7 @@ const CartModal = ({ showModal, handleClose }) => {
       </Modal.Footer>
     </Modal>
     </>
-  );
-};
+  )
+}
 
 export default CartModal

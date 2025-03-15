@@ -11,11 +11,10 @@ function ItemDetail({ detail }) {
       <Card style={{ width: '25rem' }} className="shadow-lg">
         <Card.Img variant="top" src={detail?.image} />
         <Card.Body>
-          <Card.Title>{detail?.title}</Card.Title>
+          <Card.Title>{detail?.name}</Card.Title>
           <Card.Text>{detail?.description}</Card.Text>
           <Card.Text>{detail?.category}</Card.Text>
           <Card.Text>${detail?.price}</Card.Text>
-          <Card.Text>Stock: {detail?.stock}</Card.Text>
           <ItemCount product={ detail }/>
         </Card.Body>
       </Card>

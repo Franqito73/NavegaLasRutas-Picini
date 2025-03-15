@@ -1,4 +1,3 @@
-import React from 'react'
 import { Container, Row, Col, Table, Button, Card } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 
@@ -28,7 +27,7 @@ const CartList = ({ cart }) => {
                     <tbody>
                       {cart.map((item) => (
                         <tr key={item.id}>
-                          <td>{item.title}</td>
+                          <td>{item.name}</td>
                           <td>{item.quantity}</td>
                           <td>${item.price}</td>
                           <td>${item.price * item.quantity}</td>

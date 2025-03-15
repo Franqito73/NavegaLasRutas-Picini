@@ -10,14 +10,14 @@ function Item({ producto }) {
       <Card className="shadow-sm h-100" style={{ width: '100%' }}>
         <Card.Img variant="top" src={producto.image} />
         <Card.Body>
-          <Card.Title>{producto.title}</Card.Title>
+          <Card.Title>{producto.name}</Card.Title>
           <Card.Text>{producto.category}</Card.Text>
           <Card.Text>{producto.description}</Card.Text>
           <Button as={Link} to={`/item/${producto.id}`} variant="primary">Ver Más</Button>
         </Card.Body>
       </Card>
     </Col>
-  );
+  )
 }
 
 export default Item

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
-import ModalForm from './ModalForm';
+import React, { useState } from 'react'
+import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap'
+import ModalForm from './ModalForm'
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
@@ -9,20 +9,20 @@ const Checkout = () => {
     address: '',
     city: '',
     postalCode: '',
-  });
+  })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     // Aquí puedes agregar la lógica para procesar el formulario, como enviarlo a un backend
-    alert('Compra realizada exitosamente!');
+    alert('Compra realizada exitosamente!')
   };
 
   return (
@@ -97,7 +97,7 @@ const Checkout = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
 export default Checkout;

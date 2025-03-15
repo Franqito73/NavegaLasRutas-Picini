@@ -8,8 +8,8 @@ const CartContainer = () => {
   const [showModal, setShowModal] = useState(false)
 
   const handleCloseModal = () => {
-    setShowModal(false);
-  };
+    setShowModal(false)
+  }
 
   useEffect(() => {
     if (cart.length === 0 && !showModal) {
