@@ -2,13 +2,14 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router'
+import './product.css'
 
 
 function Item({ producto }) {
   return (
     <Col md={6} lg={4} className="mb-4 d-flex justify-content-center">
       <Card className="shadow-sm h-100" style={{ width: '100%' }}>
-        <Card.Img variant="top" src={producto.image} />
+        <Card.Img variant="top" src={producto.image} className="item-img" />
         <Card.Body>
           <Card.Title>{producto.name}</Card.Title>
           <Card.Text>{producto.category}</Card.Text>

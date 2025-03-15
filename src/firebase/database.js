@@ -28,7 +28,6 @@ export const productByCategory = async (category) => {
 }
 
 
-
 export const getProduct = async (id) => {
   const docRef = doc(db, "products", id);
   const docSnap = await getDoc(docRef);

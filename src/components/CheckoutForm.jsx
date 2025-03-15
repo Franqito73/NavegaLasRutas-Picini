@@ -37,7 +37,7 @@ const Checkout = () => {
                   <Form.Label>Nombre Completo</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Introduce tu nombre"
+                    placeholder="Introduce tu nombre y apellido"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -45,7 +45,7 @@ const Checkout = () => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="email">
-                  <Form.Label>Correo Electrónico</Form.Label>
+                  <Form.Label>E-mail</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="Introduce tu correo electrónico"
@@ -55,35 +55,13 @@ const Checkout = () => {
                     required
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="address">
-                  <Form.Label>Dirección</Form.Label>
+                <Form.Group className="mb-3" controlId="cellphone">
+                  <Form.Label>Teléfono</Form.Label>
                   <Form.Control
-                    type="text"
-                    placeholder="Introduce tu dirección"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="city">
-                  <Form.Label>Ciudad</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Introduce tu ciudad"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleChange}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="postalCode">
-                  <Form.Label>Código Postal</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Introduce tu código postal"
-                    name="postalCode"
-                    value={formData.postalCode}
+                    type="tel"
+                    placeholder="Introduce tu número telefónico"
+                    name="cellphone"
+                    value={formData.cellphone}
                     onChange={handleChange}
                     required
                   />
