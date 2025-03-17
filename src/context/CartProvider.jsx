@@ -34,9 +34,14 @@ function CartProvider ({children}) {
             
             return total
         }
+
+        const removeFromCart = (productId) => {
+            const updatedCart = cart.filter((item) => item.id !== productId)
+            setCart(updatedCart)
+          }
         
     return(
-        <CartContex.Provider value={{addToCart, cart, getTotal, getQuantity, clearCart}}>
+        <CartContex.Provider value={{addToCart, cart, getTotal, getQuantity, clearCart, removeFromCart}}>
             {children}
         </CartContex.Provider>
     )

@@ -42,6 +42,6 @@ export const createOrder = async (order) =>{
     const docRef = await addDoc(collection(db, "orders"), order);
     return  docRef.id
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error("Error adding document: ", e)
   }
 }
