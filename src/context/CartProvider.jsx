@@ -4,17 +4,21 @@ import { useState } from "react"
 function CartProvider ({children}) {
     const [cart, setCart] = useState([])
     
-    const addToCart = (product) => {
+        const addToCart = (product) => {
+        
+            const existingProduct = cart.find(item => item.id === product.id)
+
+            if (existingProduct) {
+
             const updatedCart = cart.map(item =>
             item.id === product.id ? { ...item, quantity: item.quantity + product.quantity } : item)
-
-            if (updatedCart.length === cart.length) {
-                setCart([...cart, product]) 
+        
+            setCart(updatedCart)
             } 
             else {
-                setCart(updatedCart)
+                setCart([...cart, {...product, quantity: product.quantity || 1}])
             }
-        } 
+        }
 
         const getQuantity = () => {
             const quantities = cart.map(product => product.quantity)
